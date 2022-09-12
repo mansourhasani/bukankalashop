@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block title %}پروفایل{% endblock %}
+<head>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'accounts/update.css' %}">
+    {% endblock %} 
+</head>
+{% block body %}
+    <h1>ویرایش پروفایل </h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <button type="submit">ویرایش</button>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <div class="card mt-3 p-5">
+            {% for i in data %}
+                <!-- {% if i.order.id == 6 %}
+                    
+                {% endif %} -->
+
+
+                <h2>تاریخ سفارش:{{ i.create }} <br><br>شماره فاکتور :{{ i.id }} <br><br> مبلغ فاکتور:{{ i.get_price }}</h2>
+                <!-- <img src="{{ i.product.image.url }}" style="width: 200px; height: 200px;" alt=""> -->
+                {% if i.paid == True %}
+                    <p>پرداخت شد</p>
+                {% else %}
+                    <p>پرداخت نشد</p>
+                {% endif %}
+                <hr>
+                
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

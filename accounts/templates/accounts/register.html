@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block title %} ثبت نام در سایت{% endblock %}
+<head>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'accounts/register.css' %}">
+    {% endblock %} 
+</head>
+{% block body %}
+
+    <form method="POST">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit"> ثبت نام</button>
+    </form>
+{% endblock %}

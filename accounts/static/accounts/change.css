@@ -1,0 +1,36 @@
+input{
+    color: green;
+    text-align: center ;
+    width: 300px;
+    height: 25px;
+    border: 5px solid transparent;
+    border-radius: 5px;
+}
+
+
+form{
+    background-color: #ce2727;
+    margin: 100px auto;
+    width: 600px;
+    height: 200px;
+    padding: 40px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+
+
+
+form button{
+    width: 200px;
+    height: 35px;
+    border: 5px solid transparent;
+    border-radius: 10px;
+    background-color: goldenrod;
+}
+
+
+
+form button:hover{
+    background-color: aqua;
+}

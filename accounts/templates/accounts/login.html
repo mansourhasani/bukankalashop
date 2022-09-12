@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block title %}ورود به سایت{% endblock %}
+<head>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'accounts/login.css' %}">
+    {% endblock %} 
+</head>
+{% block body %}
+
+    <form method="POST">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit"> ورود </button><br><br>
+        <a  class="btn btn-info" href="{% url 'accounts:phone' %}">ورود با شماره موبایل</a><br><br><br>
+        <a  style="font-weight: bold;" href="{% url 'accounts:reset' %}">رمز خود را فراموش کرده اید؟</a>
+    </form>
+{% endblock %}

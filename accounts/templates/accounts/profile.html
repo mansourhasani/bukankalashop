@@ -1,0 +1,49 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block title %}پروفایل{% endblock %}
+<head>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'accounts/profile.css' %}">
+    {% endblock %} 
+</head>
+<div class="container">
+{% block body %}
+    <h1>پروفایل</h1>
+    <table>
+        <tr>
+            <th>
+            {{prrofile.user.username}}   : نام کاربری
+            </th>
+        </tr>
+        <tr>
+            <th>
+            {{prrofile.user.first_name}}   : نام 
+            </th>
+        </tr>
+        <tr>
+            <th>
+            {{prrofile.user.last_name}}   : نام خانوادگی
+            </th>
+        </tr>
+        <tr>
+            <th>
+            {{prrofile.user.email}}   : ایمیل
+            </th>
+        </tr>
+        <tr>
+            <th>
+            {{prrofile.address}}   : آدرس
+            </th>
+        </tr>
+        <tr>
+            <th>
+            {{prrofile.tel}}      : شماره تماس
+            </th>
+        </tr>
+    </table>
+    <div class="buttn">
+    <a style="margin-left: 600px; margin-top: -30px; text-align: center; border-radius: 25px;" href="{% url 'accounts:update' %}" class="btn btn-primary">ویرایش پروفایل</a>
+    <a style="text-align: center;margin-top: -30px; border-radius: 25px;" href="{% url 'accounts:change' %}" class="btn btn-primary">تغییر رمز</a>
+    </div>
+{% endblock %}
+</div>

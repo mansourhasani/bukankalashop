@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    {% block title %}<title>بوکان کالا بانک اطلاعات مواد غذایی</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device.width , initial-scale=1">
+    <link referrerpolicy="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css">
+    <link href="E:\جنگو\Project\bukankalashop\accounts\static\accounts\all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'catalog/styles.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    {% include 'navbar.html' %}
+    {% include 'message.html' %}
+    <div class="container-fluid">
+
+        <div class="col-sm-10" style="float:right;">
+            {% block content %} {% endblock %}
+        </div>
+        
+        <div class="col-sm-10">
+            <div class="col-sm-2">
+            {% block sidebar %}
+            <ul class="sidebar-nav">
+                {% if user.is_authenticated %}
+                <a style="background-color: orange; color: white;">سلام    {{ user.get_username }}</a>
+                <li style="list-style-type: none;"><a style="text-decoration: none; " href="/admin/">پنل مدیریت</a></li>
+                <li style="list-style-type: none;"><a style="text-decoration: none;" href="{% url 'catalog:index' %}">صفحه اصلی</a></li>
+                <li style="list-style-type: none;"><a style="text-decoration: none;" href="{% url 'catalog:products' %}">تمامی  محصولات </a></li>
+                <li style="list-style-type: none;"><a style="text-decoration: none;" href="{% url 'catalog:brand' %}">تمامی برندها</a></li> 
+                <li style="list-style-type: none;"><a style="text-decoration: none;" href="{% url 'accounts:profile' %}">پروفایل</a></li> 
+                <li style="list-style-type: none;"><a style="text-decoration: none;" href="{% url 'accounts:logout' %}">خروج از سایت</a></li>
+                {% else %}
+                <li style="list-style-type: none;"><a style="text-decoration: none;" href="{% url 'accounts:user_register' %}">ثبت نام در سایت</a></li>
+                <li style="list-style-type: none;"><a style="text-decoration: none;" href="{% url 'accounts:login' %}">ورود به سایت</a></li>             
+                {% endif %}
+                
+            </ul>
+            
+            {% endblock %}
+            </div>
+        
+        </div>
+        
+        
+    
+        
+    </div>
+  
+    {% block body %}{% endblock %} 
+    
+</body>
+</html>

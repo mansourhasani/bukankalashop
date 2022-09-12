@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block title %} فراموشی رمز{% endblock %}
+<head>
+    <!-- {% block css %}
+    <link rel="stylesheet" href="{% static 'accounts/register.css' %}">
+    {% endblock %}  -->
+</head>
+{% block body %}
+    {% if validlink %}
+        <form method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit">اعمال رمز جدید </button>
+        </form>
+    {% endif  %}
+{% endblock %}
